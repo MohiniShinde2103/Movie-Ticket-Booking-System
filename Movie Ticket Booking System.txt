@@ -1,0 +1,123 @@
+package mohini1;
+import java.util.Scanner;
+public class MovieSelection 
+{
+    static Scanner scan = new Scanner(System.in);
+    static String name;
+    int count;
+    static String[] movieList = {"1. The Avengers 60 Rs","2. The Maze Runner 60 Rs","3. Sairat 70 Rs","4. Tak Kai pan 80 Rs"};//vector
+	void getName()
+	{	
+		MovieSelection av=new MovieSelection();//object creating
+		MovieSelection mz =new MovieSelection();
+		MovieSelection sr=new MovieSelection();
+		MovieSelection tkp=new MovieSelection();
+		System.out.println("     Please! Enter your name:");
+		name=scan.next();
+		System.out.println("     Hello!! " + name);
+		System.out.println("     Please! select a movie:");
+		for(int i=0;i<movieList.length;i++)//displaying movie
+		{
+			System.out.println("                          "+movieList[i]);
+		}
+		int number=scan.nextInt();//getting the no.of movie option
+		System.out.println("You Selected the movie......"+ movieList[number-1].substring(3,movieList[number-1].length()));//
+		System.out.println("Please!!! Choose seats number  which you would like.....");
+		int seats=scan.nextInt();//getting the no.of seats
+		switch(number)
+		{
+		case 1:
+			   av.count=av.count+seats;
+			   if(av.count>60)
+				{
+				System.out.println("Seats capacity is 60...");
+				System.out.println("Bookings full.....");
+			    return;
+			    }
+			   else
+			     {
+				    System.out.println("Booking successfull.....");
+			     }
+			    break;
+		case 2:
+			   mz.count=mz.count+seats;
+			   if(mz.count>40)
+				{
+				  System.out.println("Seats capacity is 40...");
+				  System.out.println("Bookings full.....");
+			      return;
+			     }
+			  else
+			   {
+				  System.out.println("Booking successfull.....");
+			   }
+			    break;
+		case 3:
+			    sr.count=sr.count+seats;
+			    if(sr.count>45)
+				{
+				  System.out.println("Seats capacity is 45...");
+				  System.out.println("Bookings full.....");
+			      return;
+			     }
+			    else
+			    {
+				   System.out.println("Booking successfull.....");
+			    }
+			    break;
+		case 4:
+			   tkp.count=tkp.count+seats;
+			   if(tkp.count>20)
+				{
+				  System.out.println("Seats capacity is 20...");
+				  System.out.println("Bookings full.....");
+			      return;
+			    }
+			   else
+			   {
+				  System.out.println("Booking successfull.....");
+			   }
+			  break;
+		default:
+			System.out.println("Sorry....no such movie..."); 
+		}
+		System.out.println("*****Thank You For Booking*****");
+	}
+	void dispMovie()
+	{
+		System.out.println("     Movies available are..........");
+		for(int i=0;i<movieList.length;i++)
+		{
+			System.out.println(" "+movieList[i]);
+		}
+		System.out.println("---------------------");
+	}
+    public static void main(String[] args) 
+    {
+		
+    	MovieSelection MS=new MovieSelection();
+        System.out.println("              *****Movie Ticket Reservation*****          \n");
+    	int choice;
+    	do {
+    	System.out.println("\n  1. Movie Information\n  2. Booking\n  3. Database\n  4. Exit");
+    		System.out.println("Enter your choice:");
+    		choice=scan.nextInt();
+    		switch(choice)
+    		{
+    			case  1:
+    				MS.dispMovie();
+    				break;
+    			case 2:
+    				MS.getName();   				
+    				break;
+    			case 3:
+    		        break;
+    			case 4:
+    				break;
+    			default:
+    				System.out.println("Enter valid choice......\nPlease!!Try again.....");
+    		}    		
+    	}
+    	while(choice!=4);
+    }
+}
